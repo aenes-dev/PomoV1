@@ -83,10 +83,8 @@ const MainArea = () => {
     });
   };
 
-  // --- YENİ EKLENEN DÜZELTMELER: Manuel giriş hatalarını engeller ---
   const handleHoursChange = (e) => {
     const val = parseInt(e.target.value, 10);
-    // Eğer sayı girildiyse 0-23 arası sınırla, tamamen silindiyse 0 yap
     if (!isNaN(val)) {
       setHours(Math.max(0, Math.min(23, val)));
     } else {
@@ -96,14 +94,12 @@ const MainArea = () => {
 
   const handleMinutesChange = (e) => {
     const val = parseInt(e.target.value, 10);
-    // Eğer sayı girildiyse 0-59 arası sınırla, tamamen silindiyse 0 yap
     if (!isNaN(val)) {
       setMinutes(Math.max(0, Math.min(59, val)));
     } else {
       setMinutes(0);
     }
   };
-  // ------------------------------------------------------------------
 
   const toggleFullScreen = async () => {
     if (!document.fullscreenElement) {
@@ -141,14 +137,13 @@ const MainArea = () => {
         initial={{ opacity: 0, scale: 0.95 }} 
         animate={{ opacity: 1, scale: 1 }} 
         transition={{ duration: 0.5, ease: "easeOut" }}
-        className="z-10 flex flex-col items-center justify-center w-full max-w-sm px-4"
+        className="z-10 flex flex-col items-center justify-center w-full max-w-sm px-4 -mt-12 md:-mt-10"
       >
         
-        {/* HEDEF KARTI */}
-        <div className={`w-full bg-white dark:bg-[#18181b]/60 border border-gray-200 dark:border-[#27272a] rounded-2xl p-3 mb-8 flex items-center gap-3 backdrop-blur-md transition-all duration-300 ${
+        <div className={`w-full bg-white dark:bg-[#18181b]/60 border border-gray-200 dark:border-[#27272a] rounded-2xl p-3 flex items-center gap-3 backdrop-blur-md transition-all duration-300 ${
           isRunning || timeLeft > 0 
-            ? 'border-red-500/30 dark:border-red-500/20 bg-red-500/[0.02] shadow-[0_0_20px_rgba(239,68,68,0.05)]' 
-            : 'focus-within:border-red-500 dark:focus-within:border-red-500 focus-within:shadow-[0_0_20px_rgba(239,68,68,0.1)]'
+            ? 'mb-11 border-red-500/30 dark:border-red-500/20 bg-red-500/[0.02] shadow-[0_0_20px_rgba(239,68,68,0.05)]' 
+            : 'mb-8 focus-within:border-red-500 dark:focus-within:border-red-500 focus-within:shadow-[0_0_20px_rgba(239,68,68,0.1)]'
         }`}>
           <div className={`p-2 rounded-xl transition-colors ${isRunning || timeLeft > 0 ? 'bg-red-500/10 text-red-500' : 'bg-gray-100 dark:bg-[#27272a] text-gray-400'}`}>
             <Target size={20} />
@@ -193,7 +188,7 @@ const MainArea = () => {
                 <input 
                   type="number" 
                   value={hours.toString().padStart(2, '0')} 
-                  onChange={handleHoursChange} // DÜZELTİLEN KISIM
+                  onChange={handleHoursChange}
                   className="w-20 bg-transparent text-center text-6xl font-bold text-gray-800 dark:text-gray-100 outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                 />
                 <button onClick={() => adjustHours(-1)} className="p-1 -mt-1 z-10 text-gray-300 dark:text-gray-600 hover:text-red-500 dark:hover:text-red-400 transition-colors"><ChevronDown size={28} /></button>
@@ -204,7 +199,7 @@ const MainArea = () => {
                 <input 
                   type="number" 
                   value={minutes.toString().padStart(2, '0')} 
-                  onChange={handleMinutesChange} // DÜZELTİLEN KISIM
+                  onChange={handleMinutesChange}
                   className="w-20 bg-transparent text-center text-6xl font-bold text-gray-800 dark:text-gray-100 outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                 />
                 <button onClick={() => adjustMinutes(-1)} className="p-1 -mt-1 z-10 text-gray-300 dark:text-gray-600 hover:text-red-500 dark:hover:text-red-400 transition-colors"><ChevronDown size={28} /></button>

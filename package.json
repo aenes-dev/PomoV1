@@ -1,6 +1,6 @@
 {
   "name": "PomoV1",
-  "version": "1.0.0",
+ "version": "1.0.1",
   "description": "Topluluk odaklı Pomodoro ve görev yöneticisi",
   "main": "./out/main/index.js",
   "author": "Enes.dev :)",
