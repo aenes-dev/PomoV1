@@ -14,7 +14,7 @@ const Titlebar = () => {
     >
       <div className="flex items-center gap-2 text-gray-700 dark:text-gray-300">
         <Timer size={16} className="text-red-500" />
-        <span className="text-xs font-semibold tracking-wide">Pomo V1.0.0</span>
+        <span className="text-xs font-semibold tracking-wide">Pomo V1.0.1</span>
       </div>
 
       <div className="flex items-center gap-4 text-gray-500" style={{ WebkitAppRegion: 'no-drag' }}>

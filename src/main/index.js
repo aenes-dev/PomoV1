@@ -74,10 +74,16 @@ app.whenReady().then(() => {
     else win.maximize()
   })
 
+
   ipcMain.on('window-close', (event) => {
     const win = BrowserWindow.fromWebContents(event.sender)
     win.close()
   })
+
+
+  ipcMain.on('check-for-updates', () => {
+  autoUpdater.checkForUpdates(); 
+});
 
   createWindow()
 

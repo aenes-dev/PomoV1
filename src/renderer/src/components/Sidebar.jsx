@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { createPortal } from 'react-dom'; // YENİ: Modal'ı tüm ekrana yaymak için eklendi
-import { UserPlus, Settings, Flame, Coffee, Bell, Check, X, LogOut, Loader2, PanelLeftClose, PanelLeftOpen, Clock, MessageSquare, Megaphone, UserMinus } from 'lucide-react';
+import { createPortal } from 'react-dom'; 
+// YENİ İKON EKLENDİ: RefreshCw (Güncelleme ikonu için)
+import { UserPlus, Settings, Flame, Coffee, Bell, Check, X, LogOut, Loader2, PanelLeftClose, PanelLeftOpen, Clock, MessageSquare, Megaphone, UserMinus, RefreshCw } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import toast from 'react-hot-toast';
 import useAppStore from '../store/useAppStore';
@@ -93,6 +94,22 @@ const Sidebar = () => {
       });
     }
     setDeleteFriendInfo(null);
+  };
+
+  // YENİ EKLENEN GÜNCELLEME KONTROL FONKSİYONU
+  const handleCheckUpdate = () => {
+    if (window.api && window.api.checkForUpdates) {
+      window.api.checkForUpdates();
+      toast.success("Güncellemeler kontrol ediliyor... İndirme başlarsa uygulama otomatik yenilenecektir.", {
+        icon: '🔄',
+        duration: 4000,
+        style: { background: '#18181b', color: '#fff', border: '1px solid #27272a' }
+      });
+    } else {
+      toast.error("Güncelleme sistemi şu an kullanılamıyor.", {
+        style: { background: '#18181b', color: '#fff', border: '1px solid #ef4444' }
+      });
+    }
   };
 
   return (
@@ -299,6 +316,15 @@ const Sidebar = () => {
         </div>
         
         <div className={`flex items-center ${isExpanded ? 'gap-1' : 'flex-col gap-2'}`}>
+          {/* YENİ EKLENEN GÜNCELLEME BUTONU BURADA */}
+          <button 
+            onClick={handleCheckUpdate} 
+            className="p-2 text-gray-400 hover:text-blue-500 dark:hover:text-blue-400 rounded-lg hover:bg-blue-50 dark:hover:bg-blue-500/10 transition-colors" 
+            title="Güncellemeleri Kontrol Et"
+          >
+            <RefreshCw size={18} />
+          </button>
+          
           {isExpanded && (
             <button className="p-2 text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 rounded-lg hover:bg-gray-100 dark:hover:bg-[#18181b] transition-colors" title="Ayarlar">
               <Settings size={18} />
