@@ -18,6 +18,7 @@ function createWindow() {
       preload: join(__dirname, '../preload/index.js'),
       contentSecurityPolicy: "default-src 'self'; connect-src 'self' https://pomov1-backend.onrender.com;",
       sandbox: false,
+      // webSecurity: false, //
       partition: 'persist:pomo_session'
     }
   })
