@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+}
+
+.dark * {
+  scrollbar-color: #27272a transparent; /* Koyu temada border rengiyle uyumlu */
+}
+
+/* 2. Chrome, Edge, Safari (Webkit) için detaylı tasarım */
+::-webkit-scrollbar {
+  width: 6px; /* Dikey kaydırma çubuğu kalınlığı (İncecik) */
+  height: 6px; /* Yatay kaydırma çubuğu kalınlığı */
+}
+
+/* Kaydırma çubuğunun arka planı (Şeffaf yapıyoruz ki havada süzülüyormuş gibi dursun) */
+::-webkit-scrollbar-track {
+  background: transparent;
+  margin: 4px; /* Kenarlardan hafif boşluk */
+}
+
+/* Tutamaç (Kaydırdığımız asıl parça) - AYDINLIK MOD */
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.15);
+  border-radius: 10px; /* Tam yuvarlak hatlar */
+  transition: background-color 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.3); /* Üzerine gelince belirginleşsin */
+}
+
+/* Tutamaç - KOYU MOD (Senin #09090b ve #18181b temana tam uyumlu) */
+.dark ::-webkit-scrollbar-thumb {
+  background-color: #27272a; /* Kart border'ları ile aynı renk */
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background-color: #3f3f46; /* Üzerine gelince bir tık parlasın */
+}
+
+/* Eğer köşelerde yatay ve dikey çubuğun kesiştiği bir yer olursa orayı da gizle */
+::-webkit-scrollbar-corner {
+  background: transparent;
+}

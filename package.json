@@ -1,0 +1,61 @@
+{
+  "name": "PomoV1",
+  "version": "1.0.0",
+  "description": "Topluluk odaklı Pomodoro ve görev yöneticisi",
+  "main": "./out/main/index.js",
+  "author": "Enes.dev :)",
+  "homepage": "https://electron-vite.org",
+  "scripts": {
+    "format": "prettier --write .",
+    "lint": "eslint --cache .",
+    "start": "electron-vite preview",
+    "dev": "electron-vite dev",
+    "build": "electron-vite build",
+    "postinstall": "electron-builder install-app-deps",
+    "build:unpack": "npm run build && electron-builder --dir",
+    "build:win": "npm run build && electron-builder --win",
+    "build:mac": "npm run build && electron-builder --mac",
+    "build:linux": "npm run build && electron-builder --linux",
+    "publish:win": "npm run build && electron-builder --win --publish always"
+  },
+  "build": {
+    "appId": "com.aenes.pomov1",
+    "productName": "PomoV1",
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "aenes-dev",
+        "repo": "PomoV1"
+      }
+    ]
+  },
+  "dependencies": {
+    "@electron-toolkit/preload": "^3.0.2",
+    "@electron-toolkit/utils": "^4.0.0",
+    "@tailwindcss/vite": "^4.3.2",
+    "axios": "^1.18.1",
+    "electron-updater": "^6.8.9",
+    "framer-motion": "^12.42.2",
+    "lucide-react": "^1.24.0",
+    "react-hot-toast": "^2.6.0",
+    "socket.io-client": "^4.8.3",
+    "tailwindcss": "^4.3.2",
+    "zustand": "^5.0.14"
+  },
+  "devDependencies": {
+    "@electron-toolkit/eslint-config": "^2.1.0",
+    "@electron-toolkit/eslint-config-prettier": "^3.0.0",
+    "@vitejs/plugin-react": "^5.1.1",
+    "electron": "^39.2.6",
+    "electron-builder": "^26.0.12",
+    "electron-vite": "^5.0.0",
+    "eslint": "^9.39.1",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.4.24",
+    "prettier": "^3.7.4",
+    "react": "^19.2.1",
+    "react-dom": "^19.2.1",
+    "vite": "^7.2.6"
+  }
+}
