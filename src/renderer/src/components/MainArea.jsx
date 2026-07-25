@@ -7,6 +7,11 @@ import DersBitis from '../audio/ders-bitis.mp3';
 import MolaBitis from '../audio/mola-bitis.mp3';
 import toast from 'react-hot-toast';
 
+
+
+let globalAudio = null;
+
+
 const MainArea = () => {
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(25);
@@ -16,7 +21,7 @@ const MainArea = () => {
   
   // Sesi kontrol etmek için yeni stateler
   const [isAlarmPlaying, setIsAlarmPlaying] = useState(false);
-  const activeAudioRef = useRef(null);
+
   
   const { 
     timeLeft, 
@@ -70,13 +75,20 @@ const MainArea = () => {
   }, [isRunning, tick]);
 
   // ================= SES KONTROL FONKSİYONLARI =================
+ useEffect(() => {
+    // Sayfaya geri gelindiğinde hafızadaki global ses çalıyor mu kontrol et
+    if (globalAudio && !globalAudio.paused) {
+      setIsAlarmPlaying(true);
+    }
+  }, []);
+
   const stopAlarm = () => {
-    if (activeAudioRef.current) {
-      activeAudioRef.current.pause();
-      activeAudioRef.current.currentTime = 0;
+    if (globalAudio) {
+      globalAudio.pause();
+      globalAudio.currentTime = 0;
     }
     setIsAlarmPlaying(false);
-    toast.success('Alarm başarıyla susturuldu.')
+    toast.success('Alarm başarıyla susturuldu.');
   };
 
   const playNotificationSound = () => {
@@ -92,7 +104,8 @@ const MainArea = () => {
         setIsAlarmPlaying(false);
       };
       
-      activeAudioRef.current = audio;
+      // Oluşturduğumuz sesi global değişkene kilitliyoruz
+      globalAudio = audio;
 
       const playPromise = audio.play();
       if (playPromise !== undefined) {
