@@ -221,7 +221,7 @@ const useAppStore = create(
         }
       },
 
-      // --- SOKET (GERÇEK ZAMANLI) İŞLEMLERİ ---
+ 
       connectSocket: () => {
         const { socket, token } = get()
         if (socket && socket.connected) return
@@ -267,7 +267,7 @@ const useAppStore = create(
     {
       name: 'pomosync-timer-storage',
       partialize: (state) => ({
-        token: state.token, // <-- BUNU EKLE
+        token: state.token, 
         timeLeft: state.timeLeft,
         endTime: state.endTime,
         isRunning: state.isRunning,
