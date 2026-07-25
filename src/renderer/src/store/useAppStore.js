@@ -228,7 +228,7 @@ const useAppStore = create(
 
         if (!token) return
 
-        const newSocket = io('http://localhost:5000', {
+        const newSocket = io('https://pomov1-backend.onrender.com', {
           auth: { token: token },
           // transports: ['websocket'],
           secure: true
