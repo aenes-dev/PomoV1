@@ -10,12 +10,14 @@ import {Toaster} from 'react-hot-toast';
 import AnnouncementsArea from './components/AnnouncementsArea';
 import SuggestionsArea from './components/SuggestionsArea';
 import useAuthCheckOnFocus from './hooks/useAuthCheckOnFocus';
+import Ayarlar from './components/Ayarlar'
 
-
+import Test from './components/Test'
 
 function App() {
   const { user, checkAuth, isCheckingAuth, activeTab, isFullScreen } = useAppStore();
-
+  
+  const test = true
 
   useEffect(() => {
     checkAuth();
@@ -32,6 +34,16 @@ function App() {
      </>
     );
   }
+
+
+  // if(test){
+  //   return(
+  //     <>
+  //     <Test/>
+  //     </>
+  //   )
+  // }
+
 
   return (
     <div className="dark">
@@ -65,7 +77,7 @@ function App() {
       },
     }} 
   />
-      <div className="flex flex-col h-screen bg-white dark:bg-black text-gray-900 dark:text-white font-sans overflow-hidden">
+      <div className="flex flex-col h-screen bg-white dark:bg-[#09090b] text-gray-900 dark:text-white font-sans overflow-hidden">
         <Titlebar />
         
         <div className="flex flex-1 overflow-hidden">
@@ -77,6 +89,7 @@ function App() {
             {activeTab === 'timer' && <MainArea />}
           {activeTab === 'suggestion' && <SuggestionsArea />}
           {activeTab === 'announcements' && <AnnouncementsArea />}
+          {activeTab === 'ayarlar' && <Ayarlar/>}
             </>
           )}
         </div>
@@ -85,4 +98,4 @@ function App() {
   );
 }
 
-export default App;
+export default App; 

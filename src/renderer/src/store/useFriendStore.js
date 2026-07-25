@@ -6,10 +6,11 @@ import toast from 'react-hot-toast';
 const useFriendStore = create((set, get) => ({
   friends: [],
   pendingRequests: [],
-  isLoadingFriends: true, // Başlangıçta true yapıyoruz ki ilk açılışta skeleton gösterilsin
+  isLoadingFriends: true, 
+  respondLoading:false,
 
   fetchFriendsAndRequests: async () => {
-    set({ isLoadingFriends: true }); // İstek başladığında yükleniyor durumuna geçir
+    set({ isLoadingFriends: true }); 
     try {
       const [friendsRes, requestsRes] = await Promise.all([
         api.get('/friends'),
@@ -25,12 +26,10 @@ const useFriendStore = create((set, get) => ({
       console.error('Veriler çekilemedi', error);
       toast.error('Arkadaş listesi yüklenirken bir sorun oluştu.');
     } finally {
-      // Hata da olsa, başarılı da olsa işlem bitince loading'i kapat
       set({ isLoadingFriends: false }); 
     }
   },
 
-  // İstek Gönder (Toast bildirimi Sidebar.jsx içinden tetikleniyor)
   sendRequest: async (username) => {
     try {
       const res = await api.post('/friends/request', { username });
@@ -42,8 +41,10 @@ const useFriendStore = create((set, get) => ({
 
   respondToRequest: async (requestId, status) => {
     try {
+      set({respondLoading:status})
       await api.put(`/friends/request/${requestId}`, { status });
       get().fetchFriendsAndRequests();
+         set({respondLoading:false})
       return true;
     } catch (error) {
       toast.error('İsteğe yanıt verirken bir ağ hatası oluştu.');
@@ -53,12 +54,17 @@ const useFriendStore = create((set, get) => ({
 
   removeFriend: async (friendId) => {
     try {
+      set({respondLoading:'remove'})
+      console.log(get().friends.filter(friend => friend._id !== friendId))
+
       const res = await api.delete(`/friends/remove/${friendId}`); 
       await get().fetchFriendsAndRequests();
-      return true; // İşlem başarılı
+      set({respondLoading:false})
+      return true; 
     } catch (error) {
+      console.log(error)
       toast.error(error.response?.data?.message || 'Arkadaş silinirken hata oluştu.');
-      return false; // İşlem başarısız
+      return false; 
     }
   },
 

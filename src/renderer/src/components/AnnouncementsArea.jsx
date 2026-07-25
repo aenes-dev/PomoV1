@@ -91,7 +91,7 @@ const AnnouncementsArea = () => {
     return new Date(dateString).toLocaleDateString('tr-TR', options);
   };
 
-  // TAM EKRAN SPINNER: Veriler yüklenirken başlık dahil her şey gizlenir
+  // TAM EKRAN SPINNER
   if (isLoading && announcements.length === 0) {
     return (
       <div className="flex-1 w-full h-full bg-gray-50 dark:bg-[#09090b] flex items-center justify-center relative overflow-hidden">
@@ -129,18 +129,21 @@ const AnnouncementsArea = () => {
   return (
     <div className="flex-1 w-full h-full bg-gray-50 dark:bg-[#09090b] flex flex-col relative overflow-hidden transition-colors duration-500">
       
-      {/* Arka Plan Dekoratif Parıltısı */}
+
       <div className="absolute top-0 right-1/4 w-[600px] h-[400px] bg-indigo-500/5 rounded-full blur-[150px] pointer-events-none"></div>
 
-      {/* HEADER */}
-      <div className="pt-12 pb-6 px-10 border-b border-gray-200/50 dark:border-[#27272a]/50 z-10 flex-shrink-0">
-        <div className="max-w-3xl mx-auto flex items-end justify-between">
+      <div className="pt-8 pb-6 px-10 border-b border-gray-200/50 dark:border-[#27272a]/50 z-10 bg-white/50 dark:bg-[#09090b]/50 backdrop-blur-sm flex-shrink-0">
+        <div className="max-w-5xl mx-auto flex flex-col md:flex-row md:items-end justify-between gap-4">
           <div>
-            <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100 tracking-tight flex items-center gap-2.5">
-              <Sparkles className="text-indigo-500 dark:text-indigo-400" size={24} />
+            <h1 className="text-3xl font-extrabold text-gray-900 dark:text-gray-100 tracking-tight flex items-center gap-3">
+              <span className="p-2 bg-indigo-500/10 text-indigo-500 rounded-xl">
+                <Sparkles size={24} />
+              </span>
               Güncellemeler
             </h1>
-            <p className="text-sm text-gray-500 dark:text-gray-400 mt-1.5 font-medium">PomoSync'teki en son yenilikler ve düzeltmeler</p>
+            <p className="text-sm text-gray-500 dark:text-gray-400 mt-2 font-medium ml-1">
+              PomoV1'deki en son yenilikler ve düzeltmeler
+            </p>
           </div>
           
           <div className="flex items-center gap-3">
@@ -161,9 +164,8 @@ const AnnouncementsArea = () => {
         </div>
       </div>
 
-      {/* TIMELINE LISTESI */}
       <div className="flex-1 overflow-y-auto px-10 py-10 z-10 custom-scrollbar">
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           {announcements.length === 0 ? (
             <div className="text-center py-20 text-gray-500">Henüz bir duyuru yayınlanmamış.</div>
           ) : (
@@ -183,7 +185,6 @@ const AnnouncementsArea = () => {
 
                 <div className="bg-white dark:bg-[#18181b]/40 border border-gray-200 dark:border-[#27272a] rounded-2xl p-6 backdrop-blur-md hover:bg-gray-50/50 dark:hover:bg-[#18181b]/80 transition-all duration-300 relative overflow-hidden">
                   
-                  {/* ADMIN KONTROLLERİ */}
                   {user?.role === 'admin' && (
                     <div className="absolute top-4 right-4 flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       <button onClick={() => handleOpenModal(ann)} className="p-1.5 bg-gray-100 dark:bg-[#27272a] hover:bg-indigo-500 hover:text-white text-gray-500 dark:text-gray-400 rounded-lg transition-colors" title="Düzenle">
@@ -213,7 +214,6 @@ const AnnouncementsArea = () => {
         </div>
       </div>
 
-      {/* ADMIN EKLEME / DÜZENLEME MODALI */}
       <AnimatePresence>
         {isModalOpen && (
           <div className="absolute inset-0 z-50 flex items-center justify-center px-4">
@@ -286,7 +286,6 @@ const AnnouncementsArea = () => {
         )}
       </AnimatePresence>
 
-      {/* SİLME ONAY MODALI */}
       <AnimatePresence>
         {deleteId && (
           <div className="absolute inset-0 z-50 flex items-center justify-center px-4">

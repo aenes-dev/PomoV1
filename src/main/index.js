@@ -1,4 +1,4 @@
-import { app, shell, BrowserWindow, ipcMain } from 'electron'
+import { app, shell, BrowserWindow, ipcMain, Notification } from 'electron'
 import { join } from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import icon from '../../resources/icon.png?asset'
@@ -48,16 +48,28 @@ function createWindow() {
 // --- OTOMATİK GÜNCELLEME OLAYLARI (YENİ EKLENDİ) ---
 autoUpdater.on('update-available', () => {
   console.log('Yeni bir güncelleme bulundu!');
+  if (Notification.isSupported()) {
+    new Notification({
+      title: 'PomoV1 Güncellemesi',
+      body: 'Yeni bir sürüm bulundu! Arka planda indiriliyor...'
+      // İstersen buraya icon: 'path/to/icon.png' diyerek kendi logonu da koyabilirsin
+    }).show();
+  }
 });
 
 autoUpdater.on('update-downloaded', () => {
   console.log('Güncelleme indirildi, uygulama yeniden başlatılıyor...');
   autoUpdater.quitAndInstall(); // İndirme bitince kapatıp yeni sürümü kurar
 });
+
 // ---------------------------------------------------
+
+
+
 
 app.whenReady().then(() => {
   electronApp.setAppUserModelId('com.electron')
+
 
   app.on('browser-window-created', (_, window) => {
     optimizer.watchWindowShortcuts(window)
@@ -91,7 +103,7 @@ app.whenReady().then(() => {
   // Sadece geliştirme (dev) modunda değilsek güncellemeleri kontrol et.
   // Bu sayede sen kod yazarken gereksiz yere update hatası fırlatmaz.
   if (!is.dev) {
-    autoUpdater.checkForUpdatesAndNotify();
+    // autoUpdater.checkForUpdatesAndNotify();
   }
   // ------------------------------------------
 

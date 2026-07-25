@@ -5,7 +5,7 @@ import axios from 'axios';
 export const controller = new AbortController();
 
 const api = axios.create({
-  baseURL: 'https://pomov1-backend.onrender.com/api',
+  baseURL: 'http://localhost:5000/api', //http://localhost:5000/api
 });
 
 api.interceptors.request.use(
