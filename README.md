@@ -46,12 +46,24 @@ Bu proje geliştirilirken karşılaşılan zorluklar modern yazılım prensipler
 
 ## 📦 Kurulum ve Çalıştırma
 
-Projeyi yerel ortamınızda çalıştırmak için aşağıdaki adımları izleyebilirsiniz:
+Uygulamanın backend (API) altyapısı **Render** üzerinde bulut tabanlı ve canlı (production) olarak çalıştığı için yerelde herhangi bir veritabanı veya sunucu kurulumuna gerek yoktur. Uygulamayı indirdiğiniz an bulut sistemine otomatik olarak bağlanır.
 
-### 1. Backend Kurulumu
-Backend reposunu klonlayın ve sunucuyu ayağa kaldırın:
+### 🖥️ Son Kullanıcılar İçin (İndir ve Kullan)
+Uygulamayı bilgisayarınıza kurup hemen odaklanmaya başlamak için:
+1. GitHub **[Releases](../../releases)** sayfasına gidin.
+2. En güncel sürüme ait `.exe` uzantılı kurulum dosyasını indirin.
+3. Kurulumu tamamlayıp PomoV1'i başlatın.
+
+### 👨‍💻 Geliştiriciler İçin (Kaynak Koduyla Çalıştırma)
+Projeyi kendi yerel ortamınızda geliştirici (development) modunda çalıştırmak isterseniz:
+
 ```bash
-git clone [https://github.com/aenes-dev/pomov1-backend.git](https://github.com/aenes-dev/pomov1-backend.git)
-cd pomov1-backend
+# Repoyu bilgisayarınıza klonlayın
+git clone <bu-reponun-adresi>
+cd pomov1
+
+# Bağımlılıkları yükleyin
 npm install
-npm start
+
+# Geliştirici modunda başlatın
+npm run dev
