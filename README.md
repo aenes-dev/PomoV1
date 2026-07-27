@@ -59,7 +59,7 @@ Projeyi kendi yerel ortamınızda geliştirici (development) modunda çalıştı
 
 ```bash
 # Repoyu bilgisayarınıza klonlayın
-git clone <bu-reponun-adresi>
+git clone https://github.com/aenes-dev/PomoV1.git
 cd pomov1
 
 # Bağımlılıkları yükleyin
