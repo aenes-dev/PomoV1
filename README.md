@@ -66,8 +66,7 @@ Projeyi kendi yerel ortamınızda geliştirici (development) modunda çalıştı
 
 ```bash
 # Repoyu bilgisayarınıza klonlayın
-git clone <bu-reponun-adresi>
-cd pomov1
+git clone https://github.com/aenes-dev/PomoV1.git
 
 # Bağımlılıkları yükleyin
 npm install
