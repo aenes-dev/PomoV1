@@ -6,6 +6,13 @@ Hem şık bir masaüstü deneyimi sunmak hem de verileri güvenli bir şekilde s
 
 ---
 
+## 📸 Uygulama Görseli
+
+<!-- NOT: Aşağıdaki parantez içine görselinin yolunu veya linkini yapıştır (Örn: ./assets/screenshot.png) -->
+![PomoV1 Ana Ekran](./public/pomo1.png)
+
+---
+
 ## ✨ Öne Çıkan Özellikler
 
 - **Dinamik Zamanlayıcı & Modlar:** Odaklanma (Focus) ve Mola (Break) modları arasında kesintisiz geçiş. Modlara göre değişen dinamik atmosfer ışıkları ve renk temaları.
@@ -59,7 +66,7 @@ Projeyi kendi yerel ortamınızda geliştirici (development) modunda çalıştı
 
 ```bash
 # Repoyu bilgisayarınıza klonlayın
-git clone https://github.com/aenes-dev/PomoV1.git
+git clone <bu-reponun-adresi>
 cd pomov1
 
 # Bağımlılıkları yükleyin
