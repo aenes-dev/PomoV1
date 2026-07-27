@@ -15,8 +15,6 @@ Hem şık bir masaüstü deneyimi sunmak hem de verileri güvenli bir şekilde s
 
 ## ✨ Öne Çıkan Özellikler
 
-## ✨ Öne Çıkan Özellikler
-
 - **Sosyal Odaklanma & Arkadaş Sistemi:** Çalışma motivasyonunu en üst düzeye çıkarmak için arkadaş ekleme altyapısı. Arkadaşlarınızın aktif odaklanma durumlarını takip edebilir ve birlikte senkronize çalışma rutinleri oluşturabilirsiniz.
 - **Dinamik Zamanlayıcı & Modlar:** Odaklanma (Focus) ve Mola (Break) modları arasında kesintisiz geçiş. Modlara göre değişen dinamik atmosfer ışıkları ve renk temaları.
 - **Kesintisiz Sesli Bildirimler:** Global ses mimarisi sayesinde, uygulama içi sayfa değişimlerinde (routing) bile kopmayan ve her ekrandan yönetilebilen asenkron alarm sistemi.
