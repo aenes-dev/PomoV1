@@ -15,13 +15,16 @@ Hem şık bir masaüstü deneyimi sunmak hem de verileri güvenli bir şekilde s
 
 ## ✨ Öne Çıkan Özellikler
 
+## ✨ Öne Çıkan Özellikler
+
+- **Sosyal Odaklanma & Arkadaş Sistemi:** Çalışma motivasyonunu en üst düzeye çıkarmak için arkadaş ekleme altyapısı. Arkadaşlarınızın aktif odaklanma durumlarını takip edebilir ve birlikte senkronize çalışma rutinleri oluşturabilirsiniz.
 - **Dinamik Zamanlayıcı & Modlar:** Odaklanma (Focus) ve Mola (Break) modları arasında kesintisiz geçiş. Modlara göre değişen dinamik atmosfer ışıkları ve renk temaları.
 - **Kesintisiz Sesli Bildirimler:** Global ses mimarisi sayesinde, uygulama içi sayfa değişimlerinde (routing) bile kopmayan ve her ekrandan yönetilebilen asenkron alarm sistemi.
 - **Hızlı Ön Ayarlar:** Tek tıkla 25 dk, 50 dk veya 1 saatlik odaklanma seansları başlatma.
 - **Özelleştirilebilir Ayarlar:** Kullanıcının çalışma rutinlerine göre şekillenebilen süre, otomatik geçiş ve bildirim konfigürasyonları.
 - **Tam Ekran Desteği:** Dikkati tamamen işe vermek için tek tıkla izole (Full Screen) odak modu.
 - **Otomatik Güncelleme (Auto-Updater):** GitHub Releases entegrasyonu ile uygulamanın yeni sürümlerini arka planda algılama ve kullanıcı deneyimini kesintiye uğratmadan otomatik sürüm yükseltme (OTA Updates).
-- **Senkronize Backend:** Kullanıcı verilerini ve yapılandırmalarını bulutta tutan, güvenli ve optimize edilmiş REST API altyapısı.
+- **Senkronize Backend:** Kullanıcı verilerini, arkadaş listelerini ve yapılandırmaları bulutta tutan, güvenli ve optimize edilmiş REST API altyapısı.
 
 ---
 
