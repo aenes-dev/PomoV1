@@ -1,34 +1,57 @@
-# PomoV1
+# 🍅 PomoV1 - Gelişmiş Pomodoro & Odaklanma Uygulaması
 
-An Electron application with React
+PomoV1, geliştiriciler ve öğrenciler için tasarlanmış, modern bir arayüze sahip, çapraz platform (cross-platform) bir masaüstü Pomodoro uygulamasıdır. Kullanıcıların odaklanma sürelerini takip etmelerini, görevlerini yönetmelerini ve mola sürelerini optimize etmelerini sağlar.
 
-## Recommended IDE Setup
+Hem şık bir masaüstü deneyimi sunmak hem de verileri güvenli bir şekilde senkronize etmek için modern web teknolojileri (React, Electron) ve güçlü bir backend (Node.js, MongoDB) mimarisi ile geliştirilmiştir.
 
-- [VSCode](https://code.visualstudio.com/) + [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) + [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+---
 
-## Project Setup
+## ✨ Öne Çıkan Özellikler
 
-### Install
+- **Dinamik Zamanlayıcı & Modlar:** Odaklanma (Focus) ve Mola (Break) modları arasında kesintisiz geçiş. Modlara göre değişen dinamik atmosfer ışıkları ve renk temaları.
+- **Kesintisiz Sesli Bildirimler:** Global ses mimarisi sayesinde, uygulama içi sayfa değişimlerinde (routing) bile kopmayan ve her ekrandan yönetilebilen asenkron alarm sistemi.
+- **Hızlı Ön Ayarlar:** Tek tıkla 25 dk, 50 dk veya 1 saatlik odaklanma seansları başlatma.
+- **Özelleştirilebilir Ayarlar:** Kullanıcının çalışma rutinlerine göre şekillenebilen süre, otomatik geçiş ve bildirim konfigürasyonları.
+- **Tam Ekran Desteği:** Dikkati tamamen işe vermek için tek tıkla izole (Full Screen) odak modu.
+- **Otomatik Güncelleme (Auto-Updater):** GitHub Releases entegrasyonu ile uygulamanın yeni sürümlerini arka planda algılama ve kullanıcı deneyimini kesintiye uğratmadan otomatik sürüm yükseltme (OTA Updates).
+- **Senkronize Backend:** Kullanıcı verilerini ve yapılandırmalarını bulutta tutan, güvenli ve optimize edilmiş REST API altyapısı.
 
+---
+
+## 🛠 Kullanılan Teknolojiler
+
+### Frontend (Masaüstü İstemci)
+- **Electron.js:** Masaüstü uygulama altyapısı, sistem seviyesi entegrasyonlar ve pencere yönetimi.
+- **React & Vite:** Yüksek performanslı, modern ve bileşen tabanlı kullanıcı arayüzü (UI) inşası.
+- **Zustand:** Uygulama genelinde karmaşık veri akışını (Global State Management) optimize etmek için hafif ve reaktif state mimarisi.
+- **Tailwind CSS:** Modern, duyarlı (responsive) ve dinamik tasarım (Design System) standartları.
+- **Framer Motion:** Akıcı UI/UX animasyonları, durum geçişleri ve mikro etkileşimler.
+- **Lucide React:** Minimalist ve vektörel ikon seti.
+- **Electron-Builder & Updater:** CI/CD süreçleri, uygulama paketleme ve otomatik dağıtım.
+
+### Backend (API Sunucusu)
+- **Node.js & Express.js:** Hızlı, ölçeklenebilir ve olay tabanlı (event-driven) RESTful API mimarisi.
+- **MongoDB & Mongoose:** Esnek veri modellemesi ve NoSQL veritabanı yönetimi.
+
+---
+
+## 🚀 Geliştirme Sürecinde Çözülen Temel Mühendislik Problemleri
+
+Bu proje geliştirilirken karşılaşılan zorluklar modern yazılım prensipleriyle çözülmüştür:
+1. **Component Lifecycle & Memory Management:** React bileşenleri arası sayfa değişiminde (unmount) kaybolan medya referansları, Global Instance mimarisi ile çözülerek bellekte asılı kalan (memory leak) süreçler engellendi ve medya kontrolü merkeze alındı.
+2. **Backend Veri Optimizasyonu:** Veritabanı tarafında yaşanan tekrarlı anahtar (Duplicate Key) çakışmaları, şema (Schema) yeniden yapılandırması ve indeksleme (Indexing) stratejileri ile giderildi.
+3. **Versiyonlama & CI/CD Pipeline:** İstemci ve sunucu mimarileri bağımsız repolara ayrılarak mikroservis mantığına yaklaştırıldı. Semantic Versioning (SemVer) standartları benimsenerek, CLI üzerinden tek komutla çalışan otomatik derleme ve dağıtım (Build & Publish) otomasyonu kuruldu.
+
+---
+
+## 📦 Kurulum ve Çalıştırma
+
+Projeyi yerel ortamınızda çalıştırmak için aşağıdaki adımları izleyebilirsiniz:
+
+### 1. Backend Kurulumu
+Backend reposunu klonlayın ve sunucuyu ayağa kaldırın:
 ```bash
-$ npm install
-```
-
-### Development
-
-```bash
-$ npm run dev
-```
-
-### Build
-
-```bash
-# For windows
-$ npm run build:win
-
-# For macOS
-$ npm run build:mac
-
-# For Linux
-$ npm run build:linux
-```
+git clone [https://github.com/aenes-dev/pomov1-backend.git](https://github.com/aenes-dev/pomov1-backend.git)
+cd pomov1-backend
+npm install
+npm start
