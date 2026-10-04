@@ -269,7 +269,7 @@ const Sidebar = () => {
             >
               <Megaphone size={18} /> Duyurular
             </button>
-            <button onClick={() => setShowUpdateModal(true)} className={`flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-semibold transition-all bg-transparent text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-[#18181b] hover:text-red-500 dark:hover:text-red-400`}><Sparkles size={18} /> Yenilikler</button>
+            <button onClick={() => setShowUpdateModal(true)} className={`flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-semibold transition-all bg-transparent text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-[#18181b] hover:text-gray-800 dark:hover:text-gray-200`}><Sparkles size={18} /> Yenilikler</button>
           </div>
         )}
 
