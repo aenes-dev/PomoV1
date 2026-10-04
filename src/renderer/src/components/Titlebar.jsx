@@ -1,5 +1,6 @@
 import React from 'react';
 import { Minus, Square, X, Timer } from 'lucide-react';
+import packageJson from '../../../../package.json'
 
 const Titlebar = () => {
   // Electron'un ipcRenderer köprüsünü çağırıyoruz
@@ -14,7 +15,7 @@ const Titlebar = () => {
     >
       <div className="flex items-center gap-2 text-gray-700 dark:text-gray-300">
         <Timer size={16} className="text-red-500" />
-        <span className="text-xs font-semibold tracking-wide">Pomo V1.1.1</span>
+        <span className="text-xs font-semibold tracking-wide">Pomo {packageJson.version}</span>
       </div>
 
       <div className="flex items-center gap-4 text-gray-500" style={{ WebkitAppRegion: 'no-drag' }}>

@@ -4,6 +4,10 @@ import { Sparkles, Rocket, Wrench, Zap, Plus, X, Send, Trash2, Edit2, Info, Aler
 import toast from 'react-hot-toast';
 import useAppStore from '../store/useAppStore';
 import useAnnouncementStore from '../store/useAnnouncementStore';
+import packageJson from '../../../../package.json'
+
+
+
 
 const AnnouncementsArea = () => {
   const { user } = useAppStore();
@@ -158,7 +162,7 @@ const AnnouncementsArea = () => {
             )}
 
             <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 bg-gray-100 dark:bg-[#18181b] border border-gray-200 dark:border-[#27272a] rounded-lg text-xs font-bold text-gray-600 dark:text-gray-400">
-              Son Sürüm <span className="text-indigo-500 dark:text-indigo-400">{announcements.length > 0 ? announcements[0].version : 'v1.0'}</span>
+              Son Sürüm <span className="text-indigo-500 dark:text-indigo-400">{packageJson.version}</span>
             </div>
           </div>
         </div>
