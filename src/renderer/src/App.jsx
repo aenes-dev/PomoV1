@@ -11,7 +11,7 @@ import AnnouncementsArea from './components/AnnouncementsArea';
 import SuggestionsArea from './components/SuggestionsArea';
 import useAuthCheckOnFocus from './hooks/useAuthCheckOnFocus';
 import Ayarlar from './components/Ayarlar'
-
+import LeaderboardArea from './components/LeaderboardArea'
 import Test from './components/Test'
 
 function App() {
@@ -90,6 +90,7 @@ function App() {
           {activeTab === 'suggestion' && <SuggestionsArea />}
           {activeTab === 'announcements' && <AnnouncementsArea />}
           {activeTab === 'ayarlar' && <Ayarlar/>}
+          {activeTab === 'leaderboard' && <LeaderboardArea/>}
             </>
           )}
         </div>

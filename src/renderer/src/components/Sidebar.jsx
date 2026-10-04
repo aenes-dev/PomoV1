@@ -16,7 +16,8 @@ import {
   MessageSquare,
   Megaphone,
   UserMinus,
-  RefreshCw
+  RefreshCw,
+  Trophy
 } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import toast from 'react-hot-toast'
@@ -244,7 +245,19 @@ const Sidebar = () => {
               <Clock size={18} /> Sayaç
             </button>
             <button
-              onClick={() => setActiveTab('suggestion')}
+              onClick={() => setActiveTab('leaderboard')}
+              className={`flex items-center w-full px-4 py-2.5 rounded-xl text-sm font-semibold transition-all ${activeTab === 'leaderboard' ? 'bg-amber-500 text-white shadow-md shadow-amber-500/20' : 'bg-transparent text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-[#18181b] hover:text-gray-800 dark:hover:text-gray-200'}`}
+            >
+              <div className="flex items-center gap-3">
+                <Trophy size={18} />
+                <span>Sıralama</span>
+              </div>
+              <span className="ml-auto transform rotate-6 bg-gradient-to-tr from-red-500 to-rose-500 text-white text-[9px] font-black tracking-wider px-2 py-0.5 rounded-md shadow-sm border border-red-400/30 animate-pulse">
+                YENİ
+              </span>
+            </button>
+            <button
+                onClick={() => setActiveTab('suggestion')}
               className={`flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-semibold transition-all ${activeTab === 'suggestion' ? 'bg-emerald-500 text-white shadow-md shadow-emerald-500/20' : 'bg-transparent text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-[#18181b] hover:text-gray-800 dark:hover:text-gray-200'}`}
             >
               <MessageSquare size={18} /> Öneriler
@@ -326,7 +339,7 @@ const Sidebar = () => {
                 className={`group flex items-center ${isExpanded ? 'gap-3 p-3' : 'justify-center p-2 mb-1'} rounded-xl cursor-pointer hover:bg-gray-100 dark:hover:bg-[#18181b] transition-colors w-full relative`}
                 title={friend.username}
               >
-                {/* === ARKADAŞ AVATAR VE ONLİNE NOKTASI === */}
+                {/* === ARKADAŞ AVATAR VE ONLİNE NOKTASI === */}
                 <div className="relative flex-shrink-0">
                   <div
                     className="w-10 h-10 rounded-full bg-gray-800 dark:bg-gray-200 flex items-center justify-center text-white dark:text-gray-800 font-bold uppercase overflow-hidden"
@@ -411,7 +424,7 @@ const Sidebar = () => {
               <h4 className="text-sm font-bold text-gray-800 dark:text-gray-200 truncate w-24">
                 {user?.username || 'Kullanıcı'}
               </h4>
-              <p className="text-xs text-green-500">Çevrimiçi</p>
+              <p className="text-xs text-green-500">Çevrimici</p>
             </div>
           )}
         </div>
@@ -509,3 +522,4 @@ const Sidebar = () => {
 }
 
 export default Sidebar
+
