@@ -17,7 +17,8 @@ import {
   Megaphone,
   UserMinus,
   RefreshCw,
-  Trophy
+  Trophy,
+  Sparkles
 } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import toast from 'react-hot-toast'
@@ -32,7 +33,7 @@ const Sidebar = () => {
 
   const [deleteFriendInfo, setDeleteFriendInfo] = useState(null)
 
-  const { user, logout, isFullScreen, activeTab, setActiveTab, handleCheckUpdate } = useAppStore()
+  const { user, logout, isFullScreen, activeTab, setActiveTab, handleCheckUpdate, setShowUpdateModal } = useAppStore()
 
   const {
     friends,
@@ -268,6 +269,7 @@ const Sidebar = () => {
             >
               <Megaphone size={18} /> Duyurular
             </button>
+            <button onClick={() => setShowUpdateModal(true)} className={`flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-semibold transition-all bg-transparent text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-[#18181b] hover:text-red-500 dark:hover:text-red-400`}><Sparkles size={18} /> Yenilikler</button>
           </div>
         )}
 
@@ -522,4 +524,6 @@ const Sidebar = () => {
 }
 
 export default Sidebar
+
+
 

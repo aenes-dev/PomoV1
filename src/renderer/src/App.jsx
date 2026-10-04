@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Loader2 } from 'lucide-react'; // Yüklenme ikonu
 import Titlebar from './components/Titlebar';
 import Sidebar from './components/Sidebar';
@@ -12,12 +12,11 @@ import SuggestionsArea from './components/SuggestionsArea';
 import useAuthCheckOnFocus from './hooks/useAuthCheckOnFocus';
 import Ayarlar from './components/Ayarlar'
 import LeaderboardArea from './components/LeaderboardArea'
-import Test from './components/Test'
+import WhatsNewModal from './components/WhatsNewModal';
 
 function App() {
-  const { user, checkAuth, isCheckingAuth, activeTab, isFullScreen } = useAppStore();
+  const { user, checkAuth, isCheckingAuth, activeTab, isFullScreen, showUpdateModal, setShowUpdateModal } = useAppStore();
   
-  const test = true
 
   useEffect(() => {
     checkAuth();
@@ -36,18 +35,10 @@ function App() {
   }
 
 
-  // if(test){
-  //   return(
-  //     <>
-  //     <Test/>
-  //     </>
-  //   )
-  // }
-
-
   return (
     <div className="dark">
-      <Toaster 
+      <WhatsNewModal isOpen={showUpdateModal} onClose={() => setShowUpdateModal(false)} />
+        <Toaster 
     position="top-right" 
     toastOptions={{
       style: {
@@ -100,3 +91,4 @@ function App() {
 }
 
 export default App; 
+

@@ -22,6 +22,8 @@ const useAppStore = create(
       focusStatus: { isFocusing: false, activityName: 'Boşta' },
 
       isFullScreen: false,
+      showUpdateModal: true,
+      setShowUpdateModal: (val) => set({ showUpdateModal: val }),
       activeTab: sessionStorage.getItem('activeTab') || 'timer',
 
       setFullScreen: (status) => set({ isFullScreen: status }),
@@ -279,3 +281,4 @@ const useAppStore = create(
 )
 
 export default useAppStore
+
